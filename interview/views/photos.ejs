@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Admin paneli</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Album</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">All <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cars">Cars</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/code">Code</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/design">Design</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">new category</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchPost">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="admin-top">
+
+  </div>
+
+  <div class="admin-body">
+    <div class="row">
+      <div class="col-md-3">
+        <table class="table">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col" style="font-size: 13px;">AUTHENTICATION AND AUTHORIZATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+              <td><a href="">Groups</a> <button class="btn btn-light" disabled
+                  style="position: absolute;right: 15px;margin-top: -5px;">+ Add</button></td>
+
+            </tr>
+            <tr>
+
+              <td><a href="">Users</a> <button class="btn btn-light" disabled
+                  style="position: absolute;right: 15px;margin-top: -5px;">+ Add</button></td>
+            </tr>
+            <tr>
+
+              <td></td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr class="table-primary">
+              <th scope="col" style="font-size: 13px;">PHOTOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+              <td><a href="/admin/category">Category</a> <button class="btn btn-light" disabled
+                  style="position: absolute;right: 15px;margin-top: -5px;">+ Add</button></td>
+
+            </tr>
+            <tr>
+
+              <td><a href="/admin/photos">Photos</a> <button class="btn btn-light" disabled
+                  style="position: absolute;right: 15px;margin-top: -5px;">+ Add</button></td>
+            </tr>
+            <tr>
+
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-8">
+
+        <h1>Add Post</h1>
+
+        <form action="/admin/photos/add" method="post" enctype="multipart/form-data">
+          <label for="">Category</label>
+          <div class="input-group mb-3">
+            <select class="custom-select" name="Category">
+              <% category.forEach((value)=>{ %>
+                <option value="<%=value.nomi%>"><%=value.nomi%></option>
+              <% }) %>
+             
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Title</label>
+          <input type="text" class="form-control"  name="Title" placeholder="Title">
+        </div>
+          <div class="form-group">
+            <label for="">Description</label>
+          <textarea class="form-control"  name="Description" placeholder="Description" >
+            </textarea>
+        </div>
+          <div class="form-group">
+            <label for="">Choose photo</label>
+          <input type="file" class="form-control-file" name="myImage">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
